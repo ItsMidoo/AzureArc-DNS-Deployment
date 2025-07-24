@@ -39,14 +39,6 @@ The target server was Arc-enabled and managed from the Azure Portal. A PowerShel
 
 ---
 
-## ✅ Sample PowerShell Script
-
-```powershell
-Install-WindowsFeature -Name DNS -IncludeManagementTools
-Add-DnsServerPrimaryZone -Name "midotop.com" -ZoneFile "midotop.com.dns"
-Add-DnsServerResourceRecordA -Name "www" -ZoneName "midotop.com" -IPv4Address "192.168.1.100"
-
----
 ## 🧩 Project Architecture
 
 ```mermaid
