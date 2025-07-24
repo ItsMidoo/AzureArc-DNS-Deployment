@@ -20,6 +20,31 @@ The target server was Arc-enabled and managed from the Azure Portal. A PowerShel
 - Role-Based Access Control (RBAC)
 
 ---
+## 🧪 How It Works
+
+1. Azure Arc agent installed on the on-premises server.
+2. Server registered and visible in Azure Arc (Connected Machine).
+3. PowerShell script uploaded to Azure Storage Blob.
+4. Custom Script Extension triggered via Azure CLI.
+5. Script pulled from storage and executed on the server.
+6. DNS Server role installed, and DNS zone + sample record configured.
+
+---
+
+## 🔐 Security Considerations
+
+- Used public blob access only for demo purposes.
+- In production, consider using SAS tokens or private endpoints.
+- Applied Azure RBAC to limit extension deployment rights.
+
+---
+
+## ✅ Sample PowerShell Script
+
+```powershell
+Install-WindowsFeature -Name DNS -IncludeManagementTools
+Add-DnsServerPrimaryZone -Name "midotop.com" -ZoneFile "midotop.com.dns"
+Add-DnsServerResourceRecordA -Name "www" -ZoneName "midotop.com" -IPv4Address "192.168.1.100"
 
 ## 🧩 Project Architecture
 
