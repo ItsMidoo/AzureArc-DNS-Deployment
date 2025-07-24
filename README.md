@@ -54,8 +54,6 @@ flowchart TD
     Azure --> Extension
     Extension --> Blob
     Blob --> Script --> LocalMachine
-
-    LocalMachine --> AzureArc --> Azure
     Azure --> Extension
     Extension --> Blob
     Blob --> Script --> LocalMachine
