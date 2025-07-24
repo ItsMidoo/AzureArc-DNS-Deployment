@@ -1,5 +1,4 @@
-# AzureArc-DNS-Deployment
-# 🛰️ Hybrid DNS Deployment on Non-Azure Machine using Azure Arc & Custom Script Extension
+# 🛰️ AzureArc-DNS-Deployment
 
 ## 📘 Project Summary
 
@@ -20,6 +19,7 @@ The target server was Arc-enabled and managed from the Azure Portal. A PowerShel
 - Role-Based Access Control (RBAC)
 
 ---
+
 ## 🧪 How It Works
 
 1. Azure Arc agent installed on the on-premises server.
@@ -39,7 +39,7 @@ The target server was Arc-enabled and managed from the Azure Portal. A PowerShel
 
 ---
 
-## 🧩 Project Architecture
+## 🧩 Project Architecture (Mermaid)
 
 ```mermaid
 flowchart TD
@@ -53,7 +53,5 @@ flowchart TD
     LocalMachine --> AzureArc --> Azure
     Azure --> Extension
     Extension --> Blob
-    Blob --> Script --> LocalMachine
-    Azure --> Extension
-    Extension --> Blob
-    Blob --> Script --> LocalMachine
+    Blob --> Script
+    Script --> LocalMachine
