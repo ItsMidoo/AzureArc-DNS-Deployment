@@ -46,6 +46,7 @@ Install-WindowsFeature -Name DNS -IncludeManagementTools
 Add-DnsServerPrimaryZone -Name "midotop.com" -ZoneFile "midotop.com.dns"
 Add-DnsServerResourceRecordA -Name "www" -ZoneName "midotop.com" -IPv4Address "192.168.1.100"
 
+---
 ## 🧩 Project Architecture
 
 ```mermaid
@@ -56,6 +57,11 @@ flowchart TD
     Blob[Azure Storage Account<br>Blob Container]
     Script[Install-DNS.ps1]
     Extension[Custom Script Extension]
+
+    LocalMachine --> AzureArc --> Azure
+    Azure --> Extension
+    Extension --> Blob
+    Blob --> Script --> LocalMachine
 
     LocalMachine --> AzureArc --> Azure
     Azure --> Extension
